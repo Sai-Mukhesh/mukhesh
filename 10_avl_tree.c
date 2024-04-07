@@ -205,3 +205,30 @@ int main() {
 
   return 0;
 }
+
+/*
+
+Observations:
+AVL Tree: The code implements an AVL tree, which is a self-balancing binary search tree. It ensures that the heights of the two child subtrees of any node differ by at most one, thus allowing for efficient searching, insertion, and deletion operations.
+
+Node Structure: The struct Node defines the structure of a node in the AVL tree. It includes fields for the key value, pointers to the left and right child nodes, and the height of the node.
+
+Utility Functions:
+
+max: Calculates the maximum of two integers.
+height: Calculates the height of a node in the AVL tree.
+newNode: Creates a new node with the given key value and initializes its height to 1.
+rightRotate and leftRotate: Performs right and left rotations, respectively, to balance the AVL tree.
+getBalance: Calculates the balance factor of a node by subtracting the height of its right subtree from the height of its left subtree.
+Insertion: The insertNode function inserts a new node with the given key into the AVL tree while maintaining its balance. It recursively traverses the tree to find the appropriate position for insertion and performs rotations if necessary to balance the tree.
+
+Deletion: The deleteNode function deletes a node with the given key from the AVL tree while ensuring that the tree remains balanced. It handles cases where the node to be deleted has zero, one, or two children by replacing it with its predecessor or successor node.
+
+Traversal: The printPreOrder function performs a pre-order traversal of the AVL tree and prints the key values of the nodes.
+
+Main Function: In the main function, several nodes are inserted into the AVL tree. Then, a node with the key value 3 is deleted from the tree. The AVL tree is printed before and after the deletion operation to observe the effect on the tree's structure.
+
+Balancing: After insertion or deletion, the code updates the height of each node and checks the balance factor to determine if any rotations are required to rebalance the tree.
+
+
+*/
