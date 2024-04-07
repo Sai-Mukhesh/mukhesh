@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct node {
     int data; //node will store an integer
@@ -97,6 +98,12 @@ void inorder(struct node *root) {
 }
 
 int main() {
+
+  clock_t start_time, end_time;
+  double cpu_time_used;
+
+  start_time = clock();
+  
     /*
                    20
                  /    \
@@ -198,5 +205,42 @@ int main() {
     */
     printf("\n");
 
+
+  end_time = clock();
+
+  cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+
+
+   printf("The execution time of the code is: %f seconds\n", cpu_time_used);
+
+
     return 0;
 }
+
+/*
+
+observations about the provided code:
+Binary Search Tree (BST) Implementation: The code implements a binary search tree (BST) data structure using a linked representation. Each node contains an integer data value, a pointer to the left child node, and a pointer to the right child node.
+
+Search Operation: The search function recursively searches for a given key x in the BST. If the key is found, it returns the node containing the key; otherwise, it returns NULL.
+
+Minimum Value Finding: The find_minimum function recursively finds and returns the node with the minimum data value in the BST.
+
+Node Creation: The new_node function dynamically allocates memory for a new node with the specified data value and initializes its child pointers to NULL.
+
+Insertion Operation: The insert function inserts a new node with the given data value into the BST while maintaining the BST property.
+
+Deletion Operation: The delete function deletes a node with the specified data value from the BST while ensuring that the resulting tree remains a valid BST.
+
+In-order Traversal: The inorder function performs an in-order traversal of the BST, printing the data values of the nodes in sorted order.
+
+Main Function: In the main function, a BST is constructed with a specific structure. Nodes are inserted into the tree, and then some nodes are deleted. Finally, an in-order traversal of the modified tree is performed.
+
+Execution Time Measurement: The code measures the execution time using the clock function from the time.h library. It calculates the CPU time used to execute the code.
+
+Repetitive Code: The same code block for BST creation, insertion, deletion, and traversal is repeated twice in the code. This repetition could be avoided by moving the common functionality to separate functions.
+
+Dynamic Memory Allocation: Memory allocation is done using malloc for creating new nodes. However, there's no deallocation of memory using free. It's important to free allocated memory to prevent memory leaks.
+
+
+*/
