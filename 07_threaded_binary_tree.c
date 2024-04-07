@@ -95,3 +95,26 @@ int main()
 	inOrder(root);
 	return 0;
 }
+/*
+
+observations :
+
+Threaded Binary Tree: The code implements the conversion of a binary tree into a threaded binary tree. In a threaded binary tree, the right child pointer of a leaf node is used to store a pointer to its in-order successor, which allows for efficient in-order traversal.
+
+Node Structure: The struct node defines a node in the binary tree. It includes an integer key, pointers to the left and right children, and a boolean flag isThreaded, which indicates whether the right pointer is a normal right pointer or a pointer to the in-order successor.
+
+Threaded Conversion Function: The createThreaded function recursively traverses the binary tree and establishes threads between nodes where necessary. It finds the predecessor of each node (the rightmost child in its left subtree) and links it to the node if it exists. Then, it recursively processes the right subtree.
+
+In-order Traversal: The inOrder function performs an in-order traversal of the threaded binary tree. It starts from the leftmost node and prints each node's key value. If a node is threaded (indicating it does not have a right child), it moves to its in-order successor using the thread.
+
+Utility Functions: The code includes utility functions such as leftMost to find the leftmost node in a subtree and newNode to create a new node with a given key value.
+
+Main Function: In the main function, a binary tree is constructed with a specific structure. Then, it is converted into a threaded binary tree using the createThreaded function. Finally, the in-order traversal of the threaded tree is printed.
+
+Dynamic Memory Allocation: Memory allocation is done using malloc to create new nodes, but there's no deallocation of memory using free in this code. It's essential to free allocated memory to avoid memory leaks.
+
+Output: The code prints the in-order traversal of the threaded binary tree constructed from the provided binary tree structure.
+
+Error Handling: The code lacks error handling for cases such as memory allocation failures or invalid inputs.
+
+*/
